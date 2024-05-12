@@ -1,21 +1,23 @@
 import { defineConfig } from 'astro/config';
-import tailwind from "@astrojs/tailwind";
-import sitemap from "@astrojs/sitemap";
-import mdx from "@astrojs/mdx";
+import tailwind from '@astrojs/tailwind';
+import react from '@astrojs/react';
+import sitemap from '@astrojs/sitemap';
+import mdx from '@astrojs/mdx';
 
 // https://astro.build/config
 export default defineConfig({
   markdown: {
     drafts: true,
     shikiConfig: {
-      theme: "css-variables"
-    }
+      theme: 'css-variables',
+    },
   },
   shikiConfig: {
     wrap: true,
     skipInline: false,
-    drafts: true
+    drafts: true,
   },
-  site: 'https://lexingtonthemes.com',
-  integrations: [tailwind(), sitemap(), mdx()]
+  allowImportingTsExtensions: true,
+  site: 'https://andreadrev.com',
+  integrations: [tailwind(), sitemap(), mdx(), react()],
 });

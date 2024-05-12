@@ -1,16 +1,27 @@
 ---
-import BaseHead from "@/components/BaseHead.astro";
-import Navigation from "@/components/global/Navigation.astro";
-import Footer from "@/components/global/Footer.astro";
+import BaseHead from '@/components/BaseHead.astro';
+import Navigation from '@/components/global/Navigation.astro';
+import Footer from '@/components/global/Footer.astro';
+import Player from '@/components/global/Player.astro';
+import Drawer from '@/components/global/Drawer';
+import { ViewTransitions } from 'astro:transitions';
+const url = Astro.url;
 ---
 
 <html lang="en">
   <head>
     <BaseHead />
+    <ViewTransitions />
   </head>
-  <body class="bg-white flex flex-col min-h-screen">
-    <!-- <Navigation /> -->
-    <main class="flex-grow"><slot /></main>
-    <Footer />
+  <body class="bg-gray-50 flex flex-col min-h-screen">
+    <Player />
+    <div class="flex flex-row pt-10">
+      <Drawer url={url} client:load transition:animate="fade" />
+      <div class="content w-5/6 my-0" transition:animate="fade">
+        <main class="flex-grow"><slot /></main>
+        <!-- <div class="absolute w-full h-full bg-black opacity-50"></div> -->
+      </div>
+    </div>
+    <!-- <Footer /> -->
   </body>
 </html>
