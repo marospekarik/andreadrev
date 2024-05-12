@@ -21,6 +21,9 @@ export default function Gallery({images}) {
     const onInit = () => {
         console.log('lightGallery has been initialized');
     };
+    if (!images) {
+        return null;
+      }
     return (
             <LightGallery
                 onInit={onInit}

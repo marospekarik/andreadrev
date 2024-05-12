@@ -58,7 +58,7 @@ Use AstroSeo in all the pages you want different Seo than the index page
   <section class="flex flex-row">
     <div class="w-1/2">
       <!-- <img class="lg:h-72 w-full object-cover object-center" src={frontmatter.image.url} alt="/" /> -->
-      <Gallery client:load images={images} />
+      <Gallery client:only images={images} />
     </div>
     <div class="n">
       <p class="text-xs text-zinc-500">
