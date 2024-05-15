@@ -1,20 +1,88 @@
 ---
 import BaseLayout from './BaseLayout.astro';
-const { frontmatter } = Astro.props;
 import { AstroSeo } from '@astrolib/seo';
 import Gallery from '@/components/global/Gallery';
-
-const images = [
+const { frontmatter } = Astro.props;
+export const videos = [
   {
-    src: frontmatter.image.url,
-    alt: frontmatter.image.alt,
+    src: 'https://www.youtube.com/watch?v=Kxt04tKW-WQ',
+    title: 'PAR with Buc Kesidi',
+    description: 'Description of video 1',
   },
   {
-    src: 'https://www.youtube.com/watch?v=IFqQ0L_QJjE',
-    alt: frontmatter.image.alt,
+    src: 'https://www.youtube.com/watch?v=_dGYIt5RXN0',
+    title: 'A1 Ad',
+    description: 'Description of video 2',
+  },
+  {
+    src: 'https://www.youtube.com/watch?v=yh2RiXwzqDA',
+    title: 'Buc Kesidi - Subota',
+    description: 'Description of video 3',
+  },
+  {
+    src: 'https://www.youtube.com/watch?v=4BYASJt5plY',
+    title: 'Relja - Mi Amor',
+    description: 'Description of Relja - Mi Amor video',
+  },
+  {
+    src: 'https://www.youtube.com/watch?v=w5oAafTiL2c',
+    title: 'Audi Ad',
+    description: 'Description of Audi Ad',
+  },
+  {
+    src: 'https://www.youtube.com/watch?v=g020yafYj3U',
+    title: 'SebastiAn - Beograd',
+    description: 'Description of SebastiAn - Beograd video',
+  },
+  {
+    src: 'https://www.youtube.com/watch?v=vB9w72KVIsI',
+    title: 'Vizelj - Ne vidim te od dima',
+    description: 'Description of Vizelj - Ne vidim te od dima video',
+  },
+  {
+    src: 'https://www.youtube.com/watch?v=oM_A97yd12c',
+    title: 'Pi - B.C. (Benedetta C.) /// ✞ ✞ ✞ (3 lijesa)',
+    description: 'Description of Pi - B.C. (Benedetta C.) video',
+  },
+  {
+    src: 'https://www.youtube.com/watch?v=30186LeYSTs',
+    title: 'SYNTHESIZED MEMORIES',
+    description: 'Description of SYNTHESIZED MEMORIES video',
+  },
+  {
+    src: 'https://www.youtube.com/watch?v=awTbp-0-UjI',
+    title: 'Eyerim - Magic Mirror Ad',
+    description: 'Description of Eyerim - Magic Mirror Ad',
+  },
+  {
+    src: 'https://www.youtube.com/watch?v=cmRp7Ktodto',
+    title: 'Inka - Tama vozi me',
+    description: 'Description of Inka - Tama vozi me video',
+  },
+  {
+    src: 'https://www.youtube.com/watch?v=dZAZD8N6UQU',
+    title: "Maria Køhnke – Don't Look At Me",
+    description: "Description of Maria Køhnke – Don't Look At Me video",
   },
 ];
-const [firstImage, ...restImages] = images;
+
+export async function getImages(frontmatter) {
+  var images = await Astro.glob('/public/images/**')
+    .then((files) => {
+      return files.map((file) => file.default);
+    })
+    .then((images) => {
+      return images.filter((obj) => {
+        return obj.src.includes(frontmatter.imageFolder);
+      });
+    });
+  if (frontmatter.title === 'VIDEO') {
+    console.log('videos', videos);
+    return videos;
+  }
+  return images;
+}
+const images = await getImages(frontmatter);
 ---
 
 <!---
@@ -57,12 +125,14 @@ Use AstroSeo in all the pages you want different Seo than the index page
 <BaseLayout>
   <section class="flex flex-row">
     <div class="w-1/2">
-      <!-- <img class="lg:h-72 w-full object-cover object-center" src={frontmatter.image.url} alt="/" /> -->
-      <Gallery client:only images={images} />
+      <Gallery images={images} client:only />
     </div>
-    <div class="n">
-      <p class="text-xs text-zinc-500">
-        {frontmatter.pubDate.toString().slice(0, 10)} - Written by: {frontmatter.author}
+    <div class="w-1/2 px-10">
+      <p class="">
+        <h1>{frontmatter.title}</h1>
+        <!-- <h2 class="text-xs text-zinc-500">
+          {frontmatter.pubDate.toString().slice(0, 10)} - Written by: {frontmatter.author}
+        </h2> -->
       </p>
       <div class="flex gap-3">
         {
@@ -73,15 +143,11 @@ Use AstroSeo in all the pages you want different Seo than the index page
           ))
         }
       </div>
+      <div class="mt-6">
+        <div class="prose-styles">
+          <slot />
+        </div>
+      </div>
     </div>
   </section>
-
-  <div class="w-1/2">
-    <div class="prose-styles mx-8">
-      <h1 class="">
-        {frontmatter.title}
-      </h1>
-      <slot />
-    </div>
-  </div>
 </BaseLayout>

@@ -7,7 +7,9 @@ const { title, url, description, pubDate, author, image, tags } = Astro.props;
     <article class="flex-1 h-full flex flex-col">
       <div class="block w-full lg:col-span-2 relative">
         <img class="aspect-[1/1] object-cover bg-center h-full w-full" src={image} alt={title} />
-        <p class="text-gray-50 px-2 mt-2 font-display roboto-regular text-m absolute bottom-0 w-full bg-gray-950">
+        <p
+          class="text-gray-50 px-2 mt-2 font-display roboto-regular text-m absolute bottom-0 w-full bg-gray-950 bg-opacity-75"
+        >
           {title}
         </p>
       </div>

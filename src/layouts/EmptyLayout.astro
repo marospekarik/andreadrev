@@ -1,0 +1,16 @@
+---
+import BaseHead from '@/components/BaseHead.astro';
+import { ViewTransitions } from 'astro:transitions';
+---
+
+<html lang="en" class="h-full">
+  <head>
+    <BaseHead />
+    <ViewTransitions />
+  </head>
+  <body class="h-full">
+    <div class="h-full" transition:animate="fade">
+      <main class="h-full"><slot /></main>
+    </div>
+  </body>
+</html>

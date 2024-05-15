@@ -45,6 +45,10 @@
   @apply text-sm prose text-neutral-600 dark:text-neutral-600 prose-a:font-normal prose-a:text-blue-400 hover:prose-a:text-black prose-h1:text-black prose-img:border-2  prose-img:bg-neutral-50 dark:prose-img:bg-neutral-800 prose-img:border-transparent dark:prose-img:invert prose-h2:text-black prose-h2:font-semibold prose-p:text-sm prose-pre:font-mono max-w-none prose-pre:rounded-none prose-headings:font-display;
 }
 
+.main_cover {
+  height: 70vh;
+  aspect-ratio: 16/9;
+}
 .header_container {
   display: flex;
   justify-content: center;
@@ -69,7 +73,24 @@
 }
 .content {
   padding-right: 5vw;
-
+}
+.gallery {
+  max-width: 900px;
+  margin: 0 auto;
+}
+.gallery__item img {
+  width: 100%;
+}
+.gallery_cover {
+  max-height: 370%;
+  width: 100%;
+  margin-bottom: 1.5rem;
+}
+.gallery_cover_first {
+  object-fit: cover;
+  max-height: 370%;
+  /* width: 100%; */
+  margin-bottom: 1.5rem;
 }
 
 

@@ -28,12 +28,18 @@ const [firstPost, ...restPosts] = posts;
       title={firstPost.data.title}
       class="w-full flex content-center items-center relative"
     >
-      <img src={firstPost.data.image.url} alt={firstPost.data.title} class="w-full h-auto max-h-full object-cover" />
-      <p class="text-gray-50 px-2 mt-2 font-display roboto-regular text-m absolute bottom-0 w-full bg-gray-950">
+      <img
+        src={firstPost.data.cover || '/images/placeholder.jpg'}
+        alt={firstPost.data.title}
+        class="w-full h-auto max-h-full object-cover"
+      />
+      <p
+        class="text-gray-50 px-2 mt-2 font-display roboto-regular text-m absolute bottom-0 w-full bg-gray-950 bg-opacity-75"
+      >
         {firstPost.data.title}
       </p>
     </a>
-    <ul class="grid grid-cols-1 mt-8 gap-1 gap-y-2 gap-x-4 lg:grid-cols-3 sm:grid-cols-2">
+    <ul class="grid grid-cols-1 mt-8 gap-1 gap-y-2 gap-x-4 md:grid-cols-3 lg:grid-cols-4 sm:grid-cols-2">
       {
         restPosts.map((post) => (
           <EntriesOne
@@ -43,7 +49,7 @@ const [firstPost, ...restPosts] = posts;
             alt={post.data.title}
             pubDate={post.data.pubDate.toString().slice(0, 10)}
             author={post.data.author}
-            image={post.data.image.url}
+            image={post.data.cover || '/images/placeholder.jpg'}
             tags={post.data.tags}
           />
         ))
