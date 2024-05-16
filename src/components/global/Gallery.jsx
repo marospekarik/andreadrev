@@ -60,7 +60,7 @@ export default function Gallery({images}) {
                 >
                     <img
 
-                        alt={firstImage.alt || "video"}
+                        alt={'image' || "video"}
                         src={`https://img.youtube.com/vi/${firstImage.src.split('v=')[1]}/0.jpg`}
                         className="gallery_cover_first mb-12"
                     />
@@ -69,11 +69,11 @@ export default function Gallery({images}) {
             ) : (
                 <a
                     href={firstImage.src}
-                    data-sub-html={firstImage.alt}
+                    data-sub-html={'image'}
                     
                     data-src={firstImage.src}
                 >
-                    <img  alt={firstImage.alt || 'image'} src={firstImage.src} className="gallery_cover_first mb-12" />
+                    <img  alt={'image' || 'image'} src={firstImage.src} className="gallery_cover_first mb-12" />
                 </a>
             )}
 
