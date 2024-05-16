@@ -17,6 +17,7 @@ import lgVideo from 'lightgallery/plugins/video';
 import fjGallery from 'flickr-justified-gallery';
 
 export default function Gallery({images}) {
+    console.log(images);
     const [firstImage, ...restImages] = images;
     useEffect(() => {
         fjGallery(document.querySelectorAll('.gallery'), {
