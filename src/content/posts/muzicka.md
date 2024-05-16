@@ -1,11 +1,11 @@
 ---
 pubDate: 2023-07-01
 author: Alejandro Martinez
-title: MUZICKA
+title: MUZIČKA ATRAKCIJA
 description: "Embark on a cosmic journey with astro.js, the framework that makes interstellar development a breeze. Pair it with Tailwind CSS for a design that's out of this world"
 imageFolder: 'muzicka'
 videos: [https://www.youtube.com/watch?v=DkUVX2pKw2o]
-cover: '/src/assets/work/muzicka/cover.webp'
+cover: '/src/assets/work/muzicka/cover.jpg'
 tags: ['Projects']
 ---
 

@@ -65,9 +65,8 @@ export const videos = [
     description: "Description of Maria Køhnke – Don't Look At Me video",
   },
 ];
-
 export async function getImages(frontmatter) {
-  var images = await Astro.glob('../assets/**')
+  var images = await Astro.glob('/src/assets/**')
     .then((files) => {
       return files.map((file) => file.default);
     })
