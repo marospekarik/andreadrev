@@ -4,7 +4,7 @@ author: Alejandro Martinez
 title: Duh Tuzle
 description: "Embark on a cosmic journey with astro.js, the framework that makes interstellar development a breeze. Pair it with Tailwind CSS for a design that's out of this world"
 imageFolder: 'duh-tuzle'
-cover: '/src/assets/work/duh-tuzle/cover.webp'
+cover: '/public/images/work/duh-tuzle/cover.webp'
 tags: ['Art & Research']
 ---
 

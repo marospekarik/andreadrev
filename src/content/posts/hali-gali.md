@@ -4,7 +4,7 @@ author: Alejandro Martinez
 title: HALI GALI (2019-)
 description: "Embark on a cosmic journey with astro.js, the framework that makes interstellar development a breeze. Pair it with Tailwind CSS for a design that's out of this world"
 imageFolder: 'hali-gali'
-cover: '/src/assets/work/hali-gali/3_Hali Gali Cunami_1.webp'
+cover: '/public/images/work/hali-gali/3_Hali Gali Cunami_1.webp'
 tags: ['Projects']
 ---
 

@@ -4,7 +4,7 @@ author: Alejandro Martinez
 title: (DIS)CONNECT (2023)
 description: "Embark on a cosmic journey with astro.js, the framework that makes interstellar development a breeze. Pair it with Tailwind CSS for a design that's out of this world"
 imageFolder: 'disconnect'
-cover: '/src/assets/work/disconnect/poster_1.jpg'
+cover: '/public/images/work/disconnect/poster_1.jpg'
 tags: ['Projects']
 ---
 

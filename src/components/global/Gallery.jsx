@@ -18,7 +18,6 @@ import fjGallery from 'flickr-justified-gallery';
 
 export default function Gallery({images}) {
     const [firstImage, ...restImages] = images;
-    console.log(firstImage.src)
     useEffect(() => {
         fjGallery(document.querySelectorAll('.gallery'), {
           itemSelector: '.gallery__item',

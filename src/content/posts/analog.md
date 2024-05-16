@@ -4,6 +4,6 @@ author: Alejandro Martinez
 title: Analog
 description: "Embark on a cosmic journey with astro.js, the framework that makes interstellar development a breeze. Pair it with Tailwind CSS for a design that's out of this world"
 imageFolder: 'analog'
-cover: '/src/assets/work/analog/cover.webp'
+cover: '/public/images/work/analog/cover.webp'
 tags: ['Art & Research']
 ---

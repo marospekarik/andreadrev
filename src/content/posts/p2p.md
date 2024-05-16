@@ -4,7 +4,7 @@ author: Alejandro Martinez
 title: P2P
 description: "Embark on a cosmic journey with astro.js, the framework that makes interstellar development a breeze. Pair it with Tailwind CSS for a design that's out of this world"
 imageFolder: 'p2p'
-cover: '/src/assets/work/p2p/cover.webp'
+cover: '/public/images/work/p2p/cover.webp'
 tags: ['Art & Research']
 ---
 

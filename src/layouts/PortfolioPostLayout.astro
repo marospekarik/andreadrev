@@ -2,6 +2,7 @@
 import BaseLayout from './BaseLayout.astro';
 import { AstroSeo } from '@astrolib/seo';
 import Gallery from '@/components/global/Gallery';
+import { array } from 'astro/zod';
 const { frontmatter } = Astro.props;
 export const videos = [
   {
@@ -66,7 +67,7 @@ export const videos = [
   },
 ];
 export async function getImages(frontmatter) {
-  var images = await Astro.glob('/src/assets/**')
+  var images = await Astro.glob('/public/images/work/**')
     .then((files) => {
       return files.map((file) => file.default);
     })
@@ -81,14 +82,27 @@ export async function getImages(frontmatter) {
   return images;
 }
 const images = await getImages(frontmatter);
-const extraVideos = frontmatter?.videos || [];
-extraVideos.forEach((v) => {
-  images.push({
-    src: v,
-    title: 'default',
-    description: 'default',
-  });
-});
+// const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/**');
+// const imgArr = [];
+// Promise.all(
+//   Object.entries(images).map(async ([key, value]) => {
+//     if (key.includes(frontmatter.imageFolder)) {
+//       const img = await value();
+//       imgArr.push(img.default.src);
+//     }
+//   })
+// ).then(() => {
+//   console.log('imgArr', imgArr);
+// });
+
+// const extraVideos = frontmatter?.videos || [];
+// extraVideos.forEach((v) => {
+//   images.push({
+//     src: v,
+//     title: 'default',
+//     description: 'default',
+//   });
+// });
 ---
 
 <!---
