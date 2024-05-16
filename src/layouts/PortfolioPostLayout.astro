@@ -67,7 +67,8 @@ export const videos = [
   },
 ];
 export async function getImages(frontmatter) {
-  var images = await Astro.glob('/images/work/**')
+  // const images = import.meta.glob<{ default: ImageMetadata }>('/images/work/**');
+  var images = await Astro.glob('../../public/images/work/**')
     .then((files) => {
       return files.map((file) => file.default);
     })
