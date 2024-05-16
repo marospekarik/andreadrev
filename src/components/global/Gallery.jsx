@@ -16,8 +16,9 @@ import lgZoom from 'lightgallery/plugins/zoom';
 import lgVideo from 'lightgallery/plugins/video';
 import fjGallery from 'flickr-justified-gallery';
 
-export default function Gallery({images}) {
+export default function Gallery({images, test}) {
     console.log(images);
+    console.log('test', test)
     const [firstImage, ...restImages] = images;
     useEffect(() => {
         fjGallery(document.querySelectorAll('.gallery'), {
@@ -32,7 +33,7 @@ export default function Gallery({images}) {
     const onInit = () => {
         console.log('lg initialized');
     };
-    if (!images) {
+    if (images.length === 0 || !images) {
         return null;
       }
     return (

@@ -67,8 +67,7 @@ export const videos = [
   },
 ];
 export async function getImages(frontmatter) {
-  // const images = import.meta.glob<{ default: ImageMetadata }>('/images/work/**');
-  var images = await Astro.glob('../../public/images/work/**')
+  var images = await Astro.glob('/public/images/work/**')
     .then((files) => {
       return files.map((file) => file.default);
     })
@@ -83,6 +82,8 @@ export async function getImages(frontmatter) {
   return images;
 }
 const images = await getImages(frontmatter);
+const imgs = import.meta.glob<{ default: ImageMetadata }>('/images/work/**');
+
 // const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/**');
 // const imgArr = [];
 // Promise.all(
@@ -146,7 +147,7 @@ Use AstroSeo in all the pages you want different Seo than the index page
 <BaseLayout>
   <section class="flex flex-row">
     <div class="w-1/2">
-      <Gallery images={images} client:only />
+      <Gallery images={images} test={imgs} client:only />
     </div>
     <div class="w-1/2 px-10">
       <p class="">
