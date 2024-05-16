@@ -92,7 +92,24 @@
   /* width: 100%; */
   margin-bottom: 1.5rem;
 }
-
+.mirror-r {
+  position: absolute;
+  right: 5px;
+  transform: scaleX(-1);
+  line-height: 23px;
+}
+.enter_btn:hover .mirror-r {
+  position: initial;
+  right: 0px;
+  transform: scaleX(1);
+  line-height: initial;
+}
+.enter_btn:hover {
+  padding-right: 0.36rem
+}
+.enter_btn {
+  padding-right: 1rem
+}
 
 @media screen and (max-width: 1024px) {
   
