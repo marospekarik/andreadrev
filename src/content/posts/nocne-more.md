@@ -4,7 +4,7 @@ author: Alejandro Martinez
 title: NOCNE MORE (2018-)
 description: "Embark on a cosmic journey with astro.js, the framework that makes interstellar development a breeze. Pair it with Tailwind CSS for a design that's out of this world"
 imageFolder: 'nocne-more'
-cover: '/public/images/work/nocne-more/MOLCHAD DOMA POSTER пресс.webp'
+cover: '/images/work/nocne-more/MOLCHAD DOMA POSTER пресс.webp'
 tags: ['Projects']
 ---
 

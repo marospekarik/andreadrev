@@ -82,6 +82,7 @@ export async function getImages(frontmatter) {
   return images;
 }
 const images = await getImages(frontmatter);
+console.log(images);
 // const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/**');
 // const imgArr = [];
 // Promise.all(
