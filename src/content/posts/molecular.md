@@ -4,7 +4,7 @@ author: Alejandro Martinez
 title: Molecular Theatre
 description: "Embark on a cosmic journey with astro.js, the framework that makes interstellar development a breeze. Pair it with Tailwind CSS for a design that's out of this world"
 imageFolder: 'molecular'
-cover: '/images/work/molecular/cover.webp'
+cover: '/src/assets/work/molecular/cover.webp'
 tags: ['Art & Research']
 ---
 

@@ -4,7 +4,7 @@ author: Producer
 title: FEMKAST (2021-)
 description: 'Unleash your inner fashionista as we explore Tailwind CSS – the runway-ready framework that believes every website deserves to strut its stuff. Glam up your astro.js projects with style!'
 imageFolder: 'femkast'
-cover: '/images/work/femkast/femkast_cover.jpg'
+cover: '/src/assets/work/femkast/femkast_cover.jpg'
 tags: ['Projects']
 ---
 

@@ -67,7 +67,7 @@ export const videos = [
 ];
 
 export async function getImages(frontmatter) {
-  var images = await Astro.glob('/public/images/**')
+  var images = await Astro.glob('../assets/**')
     .then((files) => {
       return files.map((file) => file.default);
     })
@@ -77,12 +77,19 @@ export async function getImages(frontmatter) {
       });
     });
   if (frontmatter.title === 'VIDEO') {
-    console.log('videos', videos);
     return videos;
   }
   return images;
 }
 const images = await getImages(frontmatter);
+const extraVideos = frontmatter?.videos || [];
+extraVideos.forEach((v) => {
+  images.push({
+    src: v,
+    title: 'default',
+    description: 'default',
+  });
+});
 ---
 
 <!---

@@ -4,7 +4,7 @@ author: Alejandro Martinez
 title: Cyberfeminism Index
 description: "Embark on a cosmic journey with astro.js, the framework that makes interstellar development a breeze. Pair it with Tailwind CSS for a design that's out of this world"
 imageFolder: 'cyber'
-cover: '/images/work/cyber/cover.jpeg'
+cover: '/src/assets/work/cyber/cover.jpeg'
 tags: ['Art & Research']
 ---
 

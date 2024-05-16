@@ -7,6 +7,7 @@ const postsCollection = defineCollection({
       description: z.string(),
       author: z.string(),
       imageFolder: z.string(),
+      videos: z.array(z.string()).optional(),
       tags: z.array(z.string()),
       cover: z.string(),
     })
