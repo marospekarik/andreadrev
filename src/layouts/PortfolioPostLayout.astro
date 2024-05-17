@@ -81,29 +81,29 @@ export async function getImages(frontmatter) {
   }
   return images;
 }
-const images = await getImages(frontmatter);
+// const images = await getImages(frontmatter);
 
-// const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/**');
-// const imgArr = [];
-// Promise.all(
-//   Object.entries(images).map(async ([key, value]) => {
-//     if (key.includes(frontmatter.imageFolder)) {
-//       const img = await value();
-//       imgArr.push(img.default.src);
-//     }
-//   })
-// ).then(() => {
-//   console.log('imgArr', imgArr);
-// });
-
-const extraVideos = frontmatter?.videos || [];
-extraVideos.forEach((v) => {
-  images.push({
-    src: v,
-    title: 'default',
-    description: 'default',
-  });
+const images = import.meta.glob<{ default: ImageMetadata }>('../assets/**');
+const imgArr = [];
+Promise.all(
+  Object.entries(images).map(async ([key, value]) => {
+    if (key.includes(frontmatter.imageFolder)) {
+      const img = await value();
+      imgArr.push(img.default);
+    }
+  })
+).then(() => {
+  console.log('imgArr', imgArr);
 });
+
+// const extraVideos = frontmatter?.videos || [];
+// extraVideos.forEach((v) => {
+//   images.push({
+//     src: v,
+//     title: 'default',
+//     description: 'default',
+//   });
+// });
 ---
 
 <!---
@@ -146,7 +146,7 @@ Use AstroSeo in all the pages you want different Seo than the index page
 <BaseLayout>
   <section class="flex flex-row">
     <div class="w-1/2">
-      <Gallery images={images} client:only />
+      <Gallery images={imgArr} client:only />
     </div>
     <div class="w-1/2 px-10">
       <p class="">
