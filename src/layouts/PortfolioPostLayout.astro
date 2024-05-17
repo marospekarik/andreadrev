@@ -67,7 +67,7 @@ export const videos = [
   },
 ];
 export async function getImages(frontmatter) {
-  var images = await Astro.glob('/src/assets/work/**')
+  var images = await Astro.glob('../assets/work/**')
     .then((files) => {
       return files.map((file) => file.default);
     })
@@ -96,14 +96,14 @@ const images = await getImages(frontmatter);
 //   console.log('imgArr', imgArr);
 // });
 
-// const extraVideos = frontmatter?.videos || [];
-// extraVideos.forEach((v) => {
-//   images.push({
-//     src: v,
-//     title: 'default',
-//     description: 'default',
-//   });
-// });
+const extraVideos = frontmatter?.videos || [];
+extraVideos.forEach((v) => {
+  images.push({
+    src: v,
+    title: 'default',
+    description: 'default',
+  });
+});
 ---
 
 <!---
