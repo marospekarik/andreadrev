@@ -3,6 +3,7 @@ import { getCollection } from 'astro:content';
 import MarkdownPostLayout from '../../layouts/BlogPostLayout.astro';
 import PortfolioPostLayout from '@/layouts/PortfolioPostLayout.astro';
 import fg from 'fast-glob';
+import { getImage } from 'astro:assets';
 
 export const videos = [
   {
@@ -72,32 +73,29 @@ export async function getStaticPaths() {
   const blogEntries = await getCollection('posts');
 
   // Retrieve collection folders
-  const collections = fg.sync('src/assets/work/*', { onlyDirectories: true });
+  const collections = fg.sync('public/images/work/*', { onlyDirectories: true });
 
   // Map blog entries to routes
-  const blogRoutes = blogEntries.map((entry) => {
-    const dir = collections.find((collection) => collection.includes(entry.data.imageFolder));
-    console.log(dir);
-    const images = fg.sync(`${dir}/*.{png,jpg,webp,jpeg}`).map((img) => img.replace('src/', '/src/'));
+  const blogRoutes = await Promise.all(
+    blogEntries.map(async (entry) => {
+      const dir = collections.find((collection) => collection.includes(entry.data.imageFolder));
+      console.log(dir);
 
-    return {
-      params: { slug: entry.slug },
-      props: { entry, images },
-    };
-  });
+      const imagePaths = fg.sync(`${dir}/*.{png,jpg,webp,jpeg}`);
 
-  // Map collections to routes
-  // const collectionRoutes = collections.map((collection) => {
-  //   const collectionName = collection.split('/').pop();
-  //   const images = fg.sync(`${collection}/*.{png,jpg,webp}`).map((img) => img.replace('/src/', '/'));
-  //   return {
-  //     params: { collection: collectionName },
-  //     props: {
-  //       images,
-  //     },
-  //   };
-  // });
+      const images = await Promise.all(
+        imagePaths.map(async (img) => {
+          const path = img.replace('public/', '/');
+          return path;
+        })
+      );
 
+      return {
+        params: { slug: entry.slug },
+        props: { entry, images },
+      };
+    })
+  );
   return blogRoutes;
 }
 
