@@ -122,6 +122,11 @@
     padding-right: 0vw;
     padding-left: 0vw;
   }
+  .gallery_cover_first {
+    object-fit: initial;
+    max-height: initial;
+    margin-bottom: initial;
+  }
   
 }
 

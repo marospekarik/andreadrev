@@ -54,11 +54,11 @@ Use AstroSeo in all the pages you want different Seo than the index page
   }}
 />
 <BaseLayout>
-  <section class="flex flex-row">
-    <div class="w-1/2">
+  <section class="flex flex-col-reverse md:flex-row">
+    <div class="md:w-1/2">
       <Gallery client:only images={images} />
     </div>
-    <div class="w-1/2 px-10">
+    <div class="md:w-1/2 px-4 md:px-10">
       <p class="">
         <h1>{frontmatter.title}</h1>
       </p>
