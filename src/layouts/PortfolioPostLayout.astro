@@ -67,22 +67,25 @@ export const videos = [
     description: "Description of Maria Køhnke – Don't Look At Me video",
   },
 ];
-export async function getImages(frontmatter) {
-  var images = await Astro.glob('/src/assets/work/**')
-    .then((files) => {
-      return files.map((file) => file.default);
-    })
-    .then((images) => {
-      return images.filter((obj) => {
-        return obj.src.includes(frontmatter.imageFolder);
-      });
-    });
-  if (frontmatter.title === 'VIDEO') {
-    return videos;
-  }
-  return images;
-}
-const images = await getImages(frontmatter);
+// export async function getImages(frontmatter) {
+//   var images = await Astro.glob('/src/assets/work/**')
+//     .then((files) => {
+//       return files.map((file) => file.default);
+//     })
+//     .then((images) => {
+//       return images.filter((obj) => {
+//         return obj.src.includes(frontmatter.imageFolder);
+//       });
+//     });
+//   if (frontmatter.title === 'VIDEO') {
+//     return videos;
+//   }
+//   return images;
+// }
+const images = await Astro.glob('/src/assets/work/analog/*').then((files) => {
+  return files.map((file) => file.default);
+});
+// const images = await getImages(frontmatter);
 
 // const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/**');
 // const imgArr = [];
