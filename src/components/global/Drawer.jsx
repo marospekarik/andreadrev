@@ -9,19 +9,19 @@ function Menu({url, posts, tags}) {
     openSection = post?.data?.tags[0]
   }
   return (
-    <div className="menu w-1/6">
-      <div className="fixed">
-        <h1 className="roboto-regular text-gray-950 mb-5">
-          <a href="/about" >Andrea Drev</a>
+    <div className="menu my-2 md:my-0 md:w-1/6">
+      <div className="md:fixed flex flex-row justify-between items-center md:items-start md:flex-col">
+        <h1 className="roboto-regular text-gray-950 md:mb-5">
+          <a href="/about">Andrea Drev</a>
         </h1>
-        <ol role="list" className="flex flex-col">
+        <ol role="list" className="flex flex-row md:flex-col">
           {tags.map((tag, index) => (            <li
-              className={`roboto-thin-400 text-gray-500 hover:text-gray-700 text-xs ${openSection === index ? 'open' : ''}`}
+              className={`ml-6 md:ml-0 roboto-thin-400 text-gray-500 hover:text-gray-700 text-xs ${openSection === index ? 'open' : ''}`}
             >
               <a href={`/tags/${tag}`} 
               className={`${openSection === tag ? 'font-bold' : ''}`}
             >{tag}</a>
-              <ol className={`sub-sections ${openSection === tag ? 'open' : 'hidden'}`}>
+              <ol className={`sub-sections hidden ${openSection === tag ? 'open md:block' : 'hidden'}  `}>
                 {posts
                   .filter((post) => post.data.tags.includes(tag))
                   .map((post) => (

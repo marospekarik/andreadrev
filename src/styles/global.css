@@ -69,10 +69,12 @@
   margin: -3vw 0;
 }
 .menu {
-  padding-left: 5vw
+  padding-left: 5vw;
+  padding-right: 5vw;
 }
 .content {
   padding-right: 5vw;
+  padding-left: 5vw;
 }
 .gallery {
   max-width: 900px;
@@ -111,7 +113,15 @@
   padding-right: 1rem
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 860px) {
+  .menu {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+  .content {
+    padding-right: 0vw;
+    padding-left: 0vw;
+  }
   
 }
 
