@@ -13,6 +13,7 @@ import Gallery from '@/components/global/Gallery';
 // });
 const images = Astro.props.images || [];
 console.log(images);
+const { frontmatter } = Astro.props;
 ---
 
 <!---
@@ -59,19 +60,16 @@ Use AstroSeo in all the pages you want different Seo than the index page
     </div>
     <div class="w-1/2 px-10">
       <p class="">
-        <!-- <h1>{frontmatter.title}</h1> -->
-        <!-- <h2 class="text-xs text-zinc-500">
-          {frontmatter.pubDate.toString().slice(0, 10)} - Written by: {frontmatter.author}
-        </h2> -->
+        <h1>{frontmatter.title}</h1>
       </p>
       <div class="flex gap-3">
-        <!-- {
+        {
           frontmatter.tags.map((tag) => (
             <span class="inline-flex items-center uppercase    hover:text-blue-500   text-xs font-medium text-black">
               <a href={`/tags/${tag}`}>{tag}</a>
             </span>
-          )) -->
-        <!-- } -->
+          ))
+        }
       </div>
       <div class="mt-6">
         <div class="prose-styles">
