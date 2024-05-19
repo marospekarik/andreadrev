@@ -115,8 +115,8 @@
 
 @media screen and (max-width: 860px) {
   .menu {
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
   .content {
     padding-right: 0vw;
