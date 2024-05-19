@@ -82,8 +82,11 @@ export const videos = [
 //   }
 //   return images;
 // }
-const images = await Astro.glob('/src/assets/work/analog/*').then((files) => {
+var images = await Astro.glob('/src/assets/work/**').then((files) => {
   return files.map((file) => file.default);
+});
+images = images.filter((obj) => {
+  return obj.src.includes(frontmatter.imageFolder);
 });
 // const images = await getImages(frontmatter);
 
@@ -154,7 +157,6 @@ Use AstroSeo in all the pages you want different Seo than the index page
     </div>
     <div class="w-1/2 px-10">
       <p class="">
-        <img src={images[0]?.src} class="w-full" />
         <h1>{frontmatter.title}</h1>
         <!-- <h2 class="text-xs text-zinc-500">
           {frontmatter.pubDate.toString().slice(0, 10)} - Written by: {frontmatter.author}
