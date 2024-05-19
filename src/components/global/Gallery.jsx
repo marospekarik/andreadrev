@@ -54,40 +54,40 @@ export default function Gallery({images}) {
                   rotate: false,
                 }}
             >   
-            {firstImage.src.includes('youtube') ? (
+            {firstImage.includes('youtube') ? (
                 <a
                     className="first"
-                    data-src={`https://www.youtube.com/embed/${firstImage.src.split('v=')[1]}`}
+                    data-src={`https://www.youtube.com/embed/${firstImage.split('v=')[1]}`}
                 >
                     <img
 
                         alt={'image' || "video"}
-                        src={`https://img.youtube.com/vi/${firstImage.src.split('v=')[1]}/0.jpg`}
+                        src={`https://img.youtube.com/vi/${firstImage.split('v=')[1]}/0.jpg`}
                         className="gallery_cover_first mb-12"
                     />
                     <div className="lg-video-play-button"></div>
                 </a>
             ) : (
                 <a
-                    href={firstImage.src}
+                    href={firstImage}
                     data-sub-html={'image'}
                     
-                    data-src={firstImage.src}
+                    data-src={firstImage}
                 >
-                    <img  alt={'image' || 'image'} src={firstImage.src} className="gallery_cover_first mb-12" />
+                    <img  alt={'image' || 'image'} src={firstImage} className="gallery_cover_first mb-12" />
                 </a>
             )}
 
                 {restImages.map((image, index) => (
-                    image.src.includes('youtube') ? (
+                    image.includes('youtube') ? (
                         <a
                             key={index}
                             className={`gallery__item ${index === 0 ? 'first' : 'rest'}`}
-                            data-src={`https://www.youtube.com/embed/${image.src.split('v=')[1]}`}
+                            data-src={`https://www.youtube.com/embed/${image.split('v=')[1]}`}
                         >
                             <img 
                                 alt={image.alt || 'video' } 
-                                src={`https://img.youtube.com/vi/${image.src.split('v=')[1]}/0.jpg`}
+                                src={`https://img.youtube.com/vi/${image.split('v=')[1]}/0.jpg`}
                                 className={`img-responsive ${index === 0 ? 'first' : 'rest'}`}
                                 />
                             <div className="lg-video-play-button"></div>
@@ -95,12 +95,12 @@ export default function Gallery({images}) {
                     ) : (
                         <a
                             key={index}
-                            href={image.src}
+                            href={image}
                             data-sub-html={image.alt || 'image'}
                             className={`gallery__item ${index === 0 ? 'first' : 'rest'}`}
-                            data-src={image.src}
+                            data-src={image}
                         >
-                            <img alt={image.alt || 'image'} src={image.src} className={`img-responsive ${index === 0 ? 'first' : 'rest'}`} />
+                            <img alt={image.alt || 'image'} src={image} className={`img-responsive ${index === 0 ? 'first' : 'rest'}`} />
                         </a>
                     )
                 ))}

@@ -2,17 +2,110 @@
 import { getCollection } from 'astro:content';
 import MarkdownPostLayout from '../../layouts/BlogPostLayout.astro';
 import PortfolioPostLayout from '@/layouts/PortfolioPostLayout.astro';
+import fg from 'fast-glob';
+
+export const videos = [
+  {
+    src: 'https://www.youtube.com/watch?v=Kxt04tKW-WQ',
+    title: 'PAR with Buc Kesidi',
+    description: 'Description of video 1',
+  },
+  {
+    src: 'https://www.youtube.com/watch?v=_dGYIt5RXN0',
+    title: 'A1 Ad',
+    description: 'Description of video 2',
+  },
+  {
+    src: 'https://www.youtube.com/watch?v=yh2RiXwzqDA',
+    title: 'Buc Kesidi - Subota',
+    description: 'Description of video 3',
+  },
+  {
+    src: 'https://www.youtube.com/watch?v=4BYASJt5plY',
+    title: 'Relja - Mi Amor',
+    description: 'Description of Relja - Mi Amor video',
+  },
+  {
+    src: 'https://www.youtube.com/watch?v=w5oAafTiL2c',
+    title: 'Audi Ad',
+    description: 'Description of Audi Ad',
+  },
+  {
+    src: 'https://www.youtube.com/watch?v=g020yafYj3U',
+    title: 'SebastiAn - Beograd',
+    description: 'Description of SebastiAn - Beograd video',
+  },
+  {
+    src: 'https://www.youtube.com/watch?v=vB9w72KVIsI',
+    title: 'Vizelj - Ne vidim te od dima',
+    description: 'Description of Vizelj - Ne vidim te od dima video',
+  },
+  {
+    src: 'https://www.youtube.com/watch?v=oM_A97yd12c',
+    title: 'Pi - B.C. (Benedetta C.) /// ✞ ✞ ✞ (3 lijesa)',
+    description: 'Description of Pi - B.C. (Benedetta C.) video',
+  },
+  {
+    src: 'https://www.youtube.com/watch?v=30186LeYSTs',
+    title: 'SYNTHESIZED MEMORIES',
+    description: 'Description of SYNTHESIZED MEMORIES video',
+  },
+  {
+    src: 'https://www.youtube.com/watch?v=awTbp-0-UjI',
+    title: 'Eyerim - Magic Mirror Ad',
+    description: 'Description of Eyerim - Magic Mirror Ad',
+  },
+  {
+    src: 'https://www.youtube.com/watch?v=cmRp7Ktodto',
+    title: 'Inka - Tama vozi me',
+    description: 'Description of Inka - Tama vozi me video',
+  },
+  {
+    src: 'https://www.youtube.com/watch?v=dZAZD8N6UQU',
+    title: "Maria Køhnke – Don't Look At Me",
+    description: "Description of Maria Køhnke – Don't Look At Me video",
+  },
+];
+
 export async function getStaticPaths() {
+  // Retrieve blog entries
   const blogEntries = await getCollection('posts');
-  return blogEntries.map((entry) => ({
-    params: { slug: entry.slug },
-    props: { entry },
-  }));
+
+  // Retrieve collection folders
+  const collections = fg.sync('src/assets/work/*', { onlyDirectories: true });
+
+  // Map blog entries to routes
+  const blogRoutes = blogEntries.map((entry) => {
+    const dir = collections.find((collection) => collection.includes(entry.data.imageFolder));
+    console.log(dir);
+    const images = fg.sync(`${dir}/*.{png,jpg,webp,jpeg}`).map((img) => img.replace('src/', '/src/'));
+
+    return {
+      params: { slug: entry.slug },
+      props: { entry, images },
+    };
+  });
+
+  // Map collections to routes
+  // const collectionRoutes = collections.map((collection) => {
+  //   const collectionName = collection.split('/').pop();
+  //   const images = fg.sync(`${collection}/*.{png,jpg,webp}`).map((img) => img.replace('/src/', '/'));
+  //   return {
+  //     params: { collection: collectionName },
+  //     props: {
+  //       images,
+  //     },
+  //   };
+  // });
+
+  return blogRoutes;
 }
-const { entry } = Astro.props;
+
+const { entry, images } = Astro.props;
+console.log(entry, images); // images is undefined
 const { Content } = await entry.render();
 ---
 
-<PortfolioPostLayout frontmatter={entry.data}>
+<PortfolioPostLayout frontmatter={entry.data} images={images}>
   <Content />
 </PortfolioPostLayout>
