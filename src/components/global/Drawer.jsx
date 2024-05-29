@@ -1,9 +1,9 @@
 function Menu({url, posts, tags}) {
   var openSection = null;
-  if (url.pathname.includes('tags')) {
+  if (url?.pathname?.includes('tags')) {
     openSection = decodeURIComponent(url.pathname.split('/')[2])
   }
-  if (url.pathname.includes('posts')) {
+  if (url?.pathname?.includes('posts')) {
     const id = url.pathname.split('/')[2];
     const post = posts.find((post) => post.slug === id);
     openSection = post?.data?.tags[0]

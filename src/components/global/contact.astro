@@ -1,0 +1,23 @@
+---
+import instagramIcon from '@/assets/instagram.svg';
+import linkedInIcon from '@/assets/linkedin.svg';
+import Image from 'astro/components/Image.astro';
+---
+
+<div class="flex flex-row justify-between">
+  <!-- Add Linked-in and instagram icons with links to prifiles -->
+  <div class="flex flex-row">
+    <a href="https://www.instagram.com/drevandrea/">
+      <Image class="w-6 h-6" src={instagramIcon} alt="Instagram Icon" />
+    </a>
+    <a href="https://www.linkedin.com/in/andreatesanovic">
+      <Image class="w-6 h-6 ml-1" src={linkedInIcon} alt="Linked In Icon" />
+    </a>
+  </div>
+  <div>
+    <!-- email -->
+    <p class="roboto-thin">
+      <a href="mailto:andrea.tesanovic@gmail.com"> andrea.tesanovic@gmail.com </a>
+    </p>
+  </div>
+</div>

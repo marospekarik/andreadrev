@@ -113,7 +113,17 @@
   padding-right: 1rem
 }
 
-@media screen and (max-width: 860px) {
+.about {
+  max-height: 87vh;
+  /* max-width: 60vw; */
+}
+
+@media screen and (max-width: 768px) {
+  .about {
+    max-height: initial;
+    max-width: initial;
+    height: 100%;
+  }
   .menu {
     padding-left: 1rem;
     padding-right: 1rem;

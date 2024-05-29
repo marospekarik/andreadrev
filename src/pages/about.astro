@@ -3,55 +3,46 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 import { Image } from 'astro:assets';
 import coverImage from '@/assets/andrea_second.jpg';
 import signatureImage from '@/assets/signature.png';
-import instagramIcon from '@/assets/instagram.svg';
-import linkedInIcon from '@/assets/linkedin.svg';
+import Contact from '@/components/global/contact.astro';
 ---
 
 <BaseLayout>
-  <div class="flex flex-col md:flex-row max-h-3xl max-w-7xl mr-4">
-    <div class="relative md:w-1/2 pl-4 md:pl-6 mb-4 md:mb-0" title="Andrea Drev">
-      <Image class="z-50 absolute w-1/2 bottom-0 left-0" src={signatureImage} alt="Header Image" />
-      <Image
-        class="w-full max-h-96 md:max-h-full md:h-full object-cover object-top"
-        src={coverImage}
-        alt="Header Image"
-      />
-    </div>
-    <!-- <img class="w-full object-cover main_cover" src="/images/main/front.webp" alt="Header Image" /> -->
-    <!-- <h1 class="header_name roboto-regular center text-gray-950">ANDREA.DREV</h1> -->
-    <div class="flex flex-col justify-between px-4 md:px-6 md:w-1/2">
-      <div class="">
-        <p>About</p>
-        <p class="roboto-thin">
-          Hi, I am <span>Andrea Drev</span>, a creative director and communications consultant based in
-          <span>Copenhagen</span>.
-        </p>
-        <p class="roboto-thin mt-3">
-          I work at the nexus of creativity and strategy, elevating brands and expanding marketing efforts through
-          boundary-pushing campaigns and effective content.
-        </p>
-        <p class="roboto-thin mt-3">
-          Growing up in Bosnia and Herzegovina and Belgrade, I studied multimedia production, marketing, and media art.
-          I co-founded the <a>HALI GALI</a> entertainment platform, creative production <a
-            href="/posts/gilipter"
-            class="underline cursor-pointer">Gilipter</a
-          >, and the feminist podcast <a href="/posts/gilipter">FEMKAST</a>. I worked with Drugstore Belgrade, Ars
-          Electronica, and the United Nations.
-        </p>
+  <div class="about flex flex-col md:flex-row mr-4 justify-between">
+    <div class="flex flex-col md:flex-row">
+      <div class="relative md:w-1/2 pl-4 md:pl-6 mb-4 md:mb-0" title="Andrea Drev">
+        <Image class="z-50 absolute w-1/2 bottom-0 left-0" src={signatureImage} alt="Header Image" />
+        <Image
+          class="w-full max-h-80 sm:max-h-96 md:max-h-full md:h-full object-cover object-top"
+          src={coverImage}
+          alt="Header Image"
+        />
       </div>
-      <div class="flex flex-row justify-between mt-4 md:mt-0 mb-12">
-        <!-- Add Linked-in and instagram icons with links to prifiles -->
-        <div class="flex flex-row">
-          <Image class="w-6 h-6" src={instagramIcon} alt="Instagram Icon" />
-          <Image class="w-6 h-6 ml-1" src={linkedInIcon} alt="Linked In Icon" />
-        </div>
-        <div>
-          <!-- email -->
+      <div class="flex justify-between flex-col px-4 md:px-6 md:w-1/2">
+        <div class="text-sm sm:text-base">
+          <p>About</p>
           <p class="roboto-thin">
-            <a href="mailto:andrea.tesanovic@gmail.com"> andrea.tesanovic@gmail.com </a>
+            Hi, I am <span>Andrea Drev</span>, a creative director and communications consultant based in
+            <span>Copenhagen</span>.
+          </p>
+          <p class="roboto-thin mt-3">
+            I work at the nexus of creativity and strategy, elevating brands and expanding marketing efforts through
+            boundary-pushing campaigns and effective content.
+          </p>
+          <p class="roboto-thin mt-3">
+            Growing up in Bosnia and Herzegovina and Belgrade, I studied multimedia production, marketing, and media
+            art. I co-founded the <a class="underline cursor-pointer" href="/posts/hali-gali">HALI GALI</a> entertainment
+            platform, creative production <a href="/posts/gilipter" class="underline cursor-pointer">Gilipter</a>, and
+            the feminist podcast <a class="underline cursor-pointer" href="/posts/femkast">Femkast</a>. I worked with
+            Drugstore Belgrade, Ars Electronica, and the United Nations.
           </p>
         </div>
+        <div class="hidden md:block">
+          <Contact />
+        </div>
       </div>
+    </div>
+    <div class="md:hidden mb-12 mx-4">
+      <Contact />
     </div>
   </div>
 </BaseLayout>

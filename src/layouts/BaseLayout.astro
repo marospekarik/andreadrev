@@ -13,17 +13,17 @@ const tags = [...new Set(allPosts.map((post) => post.data.tags).flat())];
 //
 ---
 
-<html lang="en">
+<html lang="en" class="h-screen w-screen">
   <head>
     <BaseHead />
     <ViewTransitions />
   </head>
-  <body class="bg-gray-50 flex flex-col min-h-screen">
+  <body class="h-full w-full bg-gray-50 flex flex-col">
     <Player />
-    <div class="flex flex-col md:flex-row md:pt-10">
+    <div class="h-full w-full flex flex-col md:flex-row md:pt-10">
       <Drawer url={url} tags={tags} posts={allPosts} transition:animate="fade" />
-      <div class="content my-0 md:mr-6 md:w-5/6" transition:animate="fade">
-        <main class="flex-grow"><slot /></main>
+      <div class="h-full w-full content my-0 md:mr-6 md:w-5/6" transition:animate="fade">
+        <main class="h-full w-full flex-grow"><slot /></main>
         <!-- <div class="absolute w-full h-full bg-black opacity-50"></div> -->
       </div>
     </div>
