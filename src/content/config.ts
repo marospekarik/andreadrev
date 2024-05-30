@@ -12,7 +12,14 @@ const postsCollection = defineCollection({
       cover: z.string(),
     })
  });
+const about = defineCollection({
+  schema: z.object({
+    title: z.string(),
+  }),
+});
+
 
 export const collections = {
   posts: postsCollection,
+  about
 };

@@ -9,7 +9,7 @@ function Menu({url, posts, tags}) {
     openSection = post?.data?.tags[0]
   }
   return (
-    <div className="menu my-2 md:my-0 md:w-1/6">
+    <div className="menu my-2 md:my-0 md:w-1/6 lg:w-2/12 xl:w-1/12">
       <div className="md:fixed flex flex-row justify-between items-center md:items-start md:flex-col">
         <h1 className="roboto-regular text-gray-950 md:mb-5">
           <a href="/about">Andrea Drev</a>

@@ -3,7 +3,11 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 import { Image } from 'astro:assets';
 import coverImage from '@/assets/andrea_second.jpg';
 import signatureImage from '@/assets/signature.png';
-import Contact from '@/components/global/contact.astro';
+import Contact from '@/components/global/Contact.astro';
+import { getCollection } from 'astro:content';
+
+const entry = await getCollection('about');
+const { Content } = await entry[0].render();
 ---
 
 <BaseLayout>
@@ -18,30 +22,15 @@ import Contact from '@/components/global/contact.astro';
         />
       </div>
       <div class="flex justify-between flex-col px-4 md:px-6 md:w-1/2">
-        <div class="text-sm sm:text-base">
-          <p>About</p>
-          <p class="roboto-thin">
-            Hi, I am <span>Andrea Drev</span>, a creative director and communications consultant based in
-            <span>Copenhagen</span>.
-          </p>
-          <p class="roboto-thin mt-3">
-            I work at the nexus of creativity and strategy, elevating brands and expanding marketing efforts through
-            boundary-pushing campaigns and effective content.
-          </p>
-          <p class="roboto-thin mt-3">
-            Growing up in Bosnia and Herzegovina and Belgrade, I studied multimedia production, marketing, and media
-            art. I co-founded the <a class="underline cursor-pointer" href="/posts/hali-gali">HALI GALI</a> entertainment
-            platform, creative production <a href="/posts/gilipter" class="underline cursor-pointer">Gilipter</a>, and
-            the feminist podcast <a class="underline cursor-pointer" href="/posts/femkast">Femkast</a>. I worked with
-            Drugstore Belgrade, Ars Electronica, and the United Nations.
-          </p>
-        </div>
+        <!-- <p>About</p> -->
+        <div class="text-sm sm:text-base text-gray-600 text-justify"><Content /></div>
         <div class="hidden md:block">
           <Contact />
+          <div class="mt-10 2xl:mt-0"></div>
         </div>
       </div>
     </div>
-    <div class="md:hidden mb-12 mx-4">
+    <div class="md:hidden mt-4 mb-10 mx-4">
       <Contact />
     </div>
   </div>
