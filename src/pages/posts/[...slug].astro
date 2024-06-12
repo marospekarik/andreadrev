@@ -79,8 +79,6 @@ export async function getStaticPaths() {
   const blogRoutes = await Promise.all(
     blogEntries.map(async (entry) => {
       const dir = collections.find((collection) => collection.includes(entry.data.imageFolder));
-      console.log(dir);
-
       const imagePaths = fg.sync(`${dir}/*.{png,jpg,webp,jpeg}`);
 
       const images = await Promise.all(

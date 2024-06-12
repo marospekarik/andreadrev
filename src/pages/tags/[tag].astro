@@ -36,6 +36,9 @@ const [firstPost, ...restPosts] = posts;
         class="text-gray-50 px-2 mt-2 font-display roboto-regular text-m absolute bottom-0 w-full bg-gray-950 bg-opacity-75"
       >
         {firstPost.data.title}
+        <span class="font-mono">
+          {firstPost.data.year}
+        </span>
       </p>
     </a>
     <ul class="grid grid-cols-1 mt-8 gap-1 gap-y-2 gap-x-4 md:grid-cols-3 lg:grid-cols-4 sm:grid-cols-2">
@@ -44,6 +47,7 @@ const [firstPost, ...restPosts] = posts;
           <EntriesOne
             url={'/posts/' + post.slug}
             title={post.data.title}
+            year={post.data.year}
             description={post.data.description}
             alt={post.data.title}
             pubDate={post.data.pubDate.toString().slice(0, 10)}
