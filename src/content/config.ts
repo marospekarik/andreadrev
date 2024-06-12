@@ -4,8 +4,9 @@ const postsCollection = defineCollection({
     schema: z.object({
       title: z.string(),
       pubDate: z.date(),
-      description: z.string(),
-      author: z.string(),
+      description: z.string().optional(),
+      year: z.string().optional(),
+      author: z.string().optional(),
       imageFolder: z.string(),
       videos: z.array(z.string()).optional(),
       tags: z.array(z.string()),

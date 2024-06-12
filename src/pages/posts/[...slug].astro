@@ -100,7 +100,6 @@ export async function getStaticPaths() {
 }
 
 const { entry, images } = Astro.props;
-console.log(entry, images); // images is undefined
 const { Content } = await entry.render();
 ---
 

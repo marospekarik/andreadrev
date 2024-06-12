@@ -26,7 +26,7 @@ function Menu({url, posts, tags}) {
                   .filter((post) => post.data.tags.includes(tag))
                   .map((post) => (
                     <li className="roboto-thin-400 text-gray-400 hover:text-gray-700 text-xs">
-                      <a href={`/posts/${post.slug}`}>{post.data.title}</a>
+                      <a href={`/posts/${post.slug}`}>- {post.data.title} <span className=" font-mono">{post.data.year}</span></a>
                     </li>
                   ))}
               </ol>

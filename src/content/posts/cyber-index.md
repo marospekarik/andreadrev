@@ -1,8 +1,7 @@
 ---
 pubDate: 2023-07-01
-author: Alejandro Martinez
-title: Cyberfeminism Index
-description: "Embark on a cosmic journey with astro.js, the framework that makes interstellar development a breeze. Pair it with Tailwind CSS for a design that's out of this world"
+title: "Cyberfeminism Index"
+year: (2023)
 imageFolder: 'cyber'
 cover: '/images/work/cyber/cover.jpeg'
 tags: ['Art & Research']
@@ -10,7 +9,6 @@ tags: ['Art & Research']
 
 # Cyberfeminism Index: Noah’s Archive of Cyberfeminist Art and Culture
 
-Post-photography work, shown in Badland Magazine.
-A short paper about new and expansive ways of thinking about and designing archives: published in the Proceedings of ISEA (2023).
+A research paper about new and expansive ways of thinking about and designing archives: published in the Proceedings of ISEA (2023). Archiving of digital and media art holds a special place in new media research. I was fascinated by the logic, politics and architecture of the Cyberfeminism Index, so I did a research on the topic, with a premise that employing feminist thinking in building digital archives can help preserve and decolonize archives and art collections.
 
-https://www.youtube.com/watch?v=RqXThD0Q7rQ
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/RqXThD0Q7rQ?si=nxlwiBkgNM5lU_KL&amp;controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>

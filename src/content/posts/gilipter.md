@@ -1,11 +1,14 @@
 ---
 pubDate: 2023-07-12
 author: Giovanni Russo
-title: GILIPTER (2018-)
-description: ' Say goodbye to static boredom with astro.js. This framework brings life to static sites, turning them into the cool kids of the web. Tailwind CSS joins the party for some extra flair.'
+title: GILIPTER
+year: (2018-)
 cover: '/images/work/gilipter/cover.webp'
 imageFolder: 'gilipter'
-tags: ['Projects']
+tags: ['Photography']
 ---
 
-Photography.
+In 2018, I joined forces with the photographer Aleksa Vitorovic to kick off a creative production for visual storytelling. Our main output was collaborations with local brands and artists for advertising campaigns, branding, and PR. 
+
+We were inspired by the cinematic, unconventional beauty, and the junction of commercial and art photography. 
+

@@ -73,8 +73,8 @@
   padding-right: 5vw;
 }
 .content {
-  padding-right: 5vw;
-  padding-left: 5vw;
+  padding-right: 7vw;
+  padding-left: 7vw;
 }
 .gallery {
   max-width: 900px;
@@ -116,6 +116,27 @@
 .about {
   max-height: 87vh;
   /* max-width: 60vw; */
+  
+}
+.about a {
+    color: #000;
+    text-decoration: underline;
+}
+.about span {
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.lg-backdrop    { background-color: #fff; }
+.lg-thumb-outer { background-color: #fff; }
+
+.about p {
+  font-family: "Roboto", sans-serif;
+  font-weight: 200;
+  line-height: 1.6rem;
+  font-style: normal;
+  margin-bottom: 0.5rem;
 }
 
 @media screen and (max-width: 768px) {

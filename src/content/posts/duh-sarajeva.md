@@ -2,10 +2,9 @@
 pubDate: 2023-07-01
 author: Alejandro Martinez
 title: Duh Sarajeva
-description: "Embark on a cosmic journey with astro.js, the framework that makes interstellar development a breeze. Pair it with Tailwind CSS for a design that's out of this world"
 imageFolder: 'duh-sarajeva'
 cover: '/images/work/duh-sarajeva/cover.webp'
 tags: ['Art & Research']
 ---
 
-A series of analog photography I dedicated to Sarajevo.
+The duh series of analog photography grew into a dyptich. Duh Sarajeva is dedicated to Sarajevo, the capital of Bosnia and Herzegovina, a vibrant yet eerie place that was under the longest siege in modern warfare history during the 90s wars. In the series, I tried to capture the sadness, and the playful energy of the city trying to emerge from the rumbles. 

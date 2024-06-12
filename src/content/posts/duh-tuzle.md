@@ -2,10 +2,9 @@
 pubDate: 2023-07-01
 author: Alejandro Martinez
 title: Duh Tuzle
-description: "Embark on a cosmic journey with astro.js, the framework that makes interstellar development a breeze. Pair it with Tailwind CSS for a design that's out of this world"
 imageFolder: 'duh-tuzle'
 cover: '/images/work/duh-tuzle/cover.webp'
 tags: ['Art & Research']
 ---
 
-A series of analog photography made in my hometown of Tuzla.
+While I was a student, I was into analog photography. Inspired by the massive brain drain from Bosnia and Herzegovina, with people leaving for a better economic future after the first massive emigration during the Yugoslav wars in the 90s, I did a photo series Duh Tuzle (The ghost of Tuzla) shot in my hometown of Tuzla. It was presented at a solo exhibition.
