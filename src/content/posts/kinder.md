@@ -1,5 +1,5 @@
 ---
-pubDate: 2023-07-01
+pubDate: 2022-07-01
 author: Andrea
 title: Kinder Inc.
 year: (2022)
@@ -12,4 +12,4 @@ Kinder Inc. is a video artwork created by assemblages of archive footage and ope
 
 Artists/Researchers: Andrea Tesanovic (Bosnia and Herzegovina), Joy Panaligan (Phillipines), Cece Manzano (El Salvador), Diana Monroy Garcia (Colombia), and Buted Oyunbileg (Mongolia).
 
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/gg9hrbKL-Zc?si=aOr6BgWm44GhTwlP&amp;controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe width="100%" height="315" src="https://www.youtube-nocookie.com/embed/gg9hrbKL-Zc?si=aOr6BgWm44GhTwlP&amp;controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>

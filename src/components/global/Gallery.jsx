@@ -12,13 +12,12 @@ import 'lightgallery/scss/lg-video.scss';
 
 // import plugins if you need
 import lgThumbnail from 'lightgallery/plugins/thumbnail';
-import lgZoom from 'lightgallery/plugins/zoom';
+// import lgZoom from 'lightgallery/plugins/zoom';
 import lgVideo from 'lightgallery/plugins/video';
 import fjGallery from 'flickr-justified-gallery';
 
 
-export default function Gallery({images}) {
-    const shouldRenderCarousel = true;
+export default function Gallery({images, shouldRenderCarousel = true}) {
     useEffect(() => {
         fjGallery(document.querySelectorAll('.gallery'), {
           itemSelector: '.gallery__item',
@@ -55,7 +54,7 @@ export default function Gallery({images}) {
                 onInit={onInit}
                 speed={500}
                 download={false}
-                plugins={[lgThumbnail, lgZoom, lgVideo]}
+                plugins={[lgThumbnail, lgVideo]}
                 mode="lg-fade"
                 pager={false}
                 thumbnail={true}
@@ -80,7 +79,6 @@ export default function Gallery({images}) {
                   rotate: false,
                 }}
             >   
-    
             <GalleryItems shouldRenderCarousel={shouldRenderCarousel} images={images} />
 
             </LightGallery>

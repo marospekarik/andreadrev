@@ -5,7 +5,7 @@ import coverImage from '@/assets/andrea_second.jpg';
 import signatureImage from '@/assets/signature.png';
 import { getCollection } from 'astro:content';
 
-import Contact from '@/components/global/contact.astro';
+import Contact from '@/components/global/Contact.astro';
 
 const entry = await getCollection('about');
 const { Content } = await entry[0].render();

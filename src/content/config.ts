@@ -11,6 +11,7 @@ const postsCollection = defineCollection({
       videos: z.array(z.string()).optional(),
       tags: z.array(z.string()),
       cover: z.string(),
+      slider: z.boolean().optional(),
     })
  });
 const about = defineCollection({

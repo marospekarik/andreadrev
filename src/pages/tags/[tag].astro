@@ -17,30 +17,38 @@ export async function getStaticPaths() {
 
 const { tag } = Astro.params;
 const { posts } = Astro.props;
-const [firstPost, ...restPosts] = posts;
+const sortedPostsByDate = posts.sort((a, b) => {
+  const dateA = new Date(a.data.pubDate);
+  const dateB = new Date(b.data.pubDate);
+  return dateB.getTime() - dateA.getTime();
+});
+var [firstPost, ...restPosts] = sortedPostsByDate;
+const shouldShowHeadline = sortedPostsByDate.length > 2;
+restPosts = shouldShowHeadline ? restPosts : sortedPostsByDate;
 ---
 
 <BaseLayout pageTitle={tag}>
   <section class="mx-auto">
-    <a
-      href={`/posts/${firstPost.slug}`}
-      title={firstPost.data.title}
-      class="w-full flex content-center items-center relative"
-    >
-      <img
-        src={firstPost.data.cover}
-        alt={firstPost.data.title}
-        class="md:max-h-96 w-full h-auto max-h-full object-cover"
-      />
-      <p
-        class="text-gray-50 px-2 mt-2 font-display roboto-regular text-m absolute bottom-0 w-full bg-gray-950 bg-opacity-75"
-      >
-        {firstPost.data.title}
-        <span class="font-mono">
-          {firstPost.data.year}
-        </span>
-      </p>
-    </a>
+    {
+      shouldShowHeadline ? (
+        <a
+          href={`/posts/${firstPost.slug}`}
+          title={firstPost.data.title}
+          class="w-full flex content-center items-center relative"
+        >
+          <img
+            src={firstPost.data.cover}
+            alt={firstPost.data.title}
+            class="md:max-h-96 w-full h-auto max-h-full object-cover"
+          />
+          <p class="text-gray-50 px-2 mt-2 font-display roboto-regular text-m absolute bottom-0 w-full bg-gray-950 bg-opacity-75">
+            {firstPost.data.title}
+            <span class="font-mono">{firstPost.data.year}</span>
+          </p>
+        </a>
+      ) : null
+    }
+
     <ul class="grid grid-cols-1 mt-8 gap-1 gap-y-2 gap-x-4 md:grid-cols-3 lg:grid-cols-4 sm:grid-cols-2">
       {
         restPosts.map((post) => (

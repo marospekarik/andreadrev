@@ -1,11 +1,12 @@
 ---
-pubDate: 2023-07-01
+pubDate: 2022-07-01
 author: Andrea
 title: Ars Electronica
 year: (2022)
 imageFolder: 'ars'
 cover: '/images/work/ars/cover.webp'
 tags: ['Projects']
+slider: false
 ---
 
 In 2022, I worked as a project manager for the world’s largest media art festival, at the intersection of technology, humanity, sustainability, and innovation. 

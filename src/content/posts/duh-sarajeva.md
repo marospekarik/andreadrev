@@ -1,7 +1,8 @@
 ---
-pubDate: 2023-07-01
+pubDate: 2014-07-01
 author: Alejandro Martinez
 title: Duh Sarajeva
+year: "(2014)"
 imageFolder: 'duh-sarajeva'
 cover: '/images/work/duh-sarajeva/cover.webp'
 tags: ['Art & Research']

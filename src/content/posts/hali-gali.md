@@ -1,5 +1,5 @@
 ---
-pubDate: 2023-07-01
+pubDate: 2019-08-01
 author: Alejandro Martinez
 title: HALI GALI
 year: (2019-)
@@ -19,4 +19,4 @@ What started as a grassroots project to revive and support the local alternative
 <iframe style="border-radius:12px" src="https://open.spotify.com/embed/album/5KlVJKUF5nsQETIUsMeIok?utm_source=generator&theme=0" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
 
 </br>
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/bMkEerf6ue4?si=CbeLqZ_WSLLIu_AE&amp;controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe width="100%" height="315" src="https://www.youtube-nocookie.com/embed/bMkEerf6ue4?si=CbeLqZ_WSLLIu_AE&amp;controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>

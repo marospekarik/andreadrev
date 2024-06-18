@@ -158,8 +158,8 @@
     max-height: initial;
     margin-bottom: initial;
   }
-  
 }
+.lg-backdrop, .lg-thumb   { background-color: rgb(249 250 251 / var(--tw-bg-opacity))!important; }
 
 /* @media screen and (max-width: 860px) {
   .header_container img {

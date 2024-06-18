@@ -13,6 +13,9 @@ import Gallery from '@/components/global/Gallery';
 // });
 const images = Astro.props.images || [];
 const { frontmatter } = Astro.props;
+const title = frontmatter.title;
+const shouldRenderFull = frontmatter.title === 'Director' || frontmatter.title === 'Talent';
+console.log(frontmatter.title);
 ---
 
 <!---
@@ -54,10 +57,14 @@ Use AstroSeo in all the pages you want different Seo than the index page
 />
 <BaseLayout>
   <section class="flex flex-col-reverse md:flex-row">
-    <div class="md:w-1/2">
-      <Gallery client:only images={images} />
-    </div>
-    <div class="md:w-1/2 px-4 md:px-10">
+    {
+      shouldRenderFull ? null : (
+        <div class="md:w-1/2">
+          <Gallery client:only images={images} shouldRenderCarousel={frontmatter.slider} />
+        </div>
+      )
+    }
+    <div class=`${shouldRenderFull ? "" : "md:w-1/2 px-4 md:px-10"} `>
       <p class="">
         <h1>{frontmatter.title}</h1>
       </p>

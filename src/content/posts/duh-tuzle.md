@@ -1,7 +1,8 @@
 ---
-pubDate: 2023-07-01
+pubDate: 2013-07-01
 author: Alejandro Martinez
 title: Duh Tuzle
+year: "(2013)"
 imageFolder: 'duh-tuzle'
 cover: '/images/work/duh-tuzle/cover.webp'
 tags: ['Art & Research']
