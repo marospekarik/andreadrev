@@ -1,3 +1,12 @@
+
+function processTag(tag) {
+  if(tag === 'Photography') {
+    return "Photo"
+  } 
+  return tag
+}
+
+
 function Menu({url, posts, tags}) {
   var openSection = null;
   if (url?.pathname?.includes('tags')) {
@@ -10,17 +19,17 @@ function Menu({url, posts, tags}) {
   }
   return (
     <div className="menu my-2 md:my-0 md:w-1/6 lg:w-2/12 xl:w-1/12">
-      <div className="md:fixed flex flex-row justify-between items-center md:items-start md:flex-col">
+      <div className="md:fixed flex flex-col justify-between items-center md:items-start ">
         <h1 className="roboto-regular text-gray-950 md:mb-5">
           <a href="/about">Andrea Drev</a>
         </h1>
-        <ol role="list" className="flex flex-row md:flex-col">
+        <ol role="list" className="flex flex-row md:flex-col space-x-2">
           {tags.map((tag, index) => (            <li
-              className={`ml-6 md:ml-0 roboto-thin-400 text-gray-500 hover:text-gray-700 text-xs ${openSection === index ? 'open' : ''}`}
+              className={`md:ml-0 roboto-thin-400 text-gray-500 hover:text-gray-700 text-xs ${openSection === index ? 'open' : ''}`}
             >
               <a href={`/tags/${tag}`} 
               className={`${openSection === tag ? 'font-bold' : ''}`}
-            >{tag}</a>
+            ><span className="md:hidden">{processTag(tag)}</span><span className="hidden md:block">{tag}</span></a>
               <ol className={`sub-sections hidden ${openSection === tag ? 'open md:block' : 'hidden'}  `}>
                 {posts
                   .filter((post) => post.data.tags.includes(tag))
