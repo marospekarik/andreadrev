@@ -53,6 +53,7 @@ export default function Gallery({images, shouldRenderCarousel = true}) {
                 container={shouldRenderCarousel && containerRef.current}
                 onInit={onInit}
                 speed={500}
+                closeOnTap={true}
                 download={false}
                 plugins={[lgThumbnail, lgVideo]}
                 mode="lg-fade"
