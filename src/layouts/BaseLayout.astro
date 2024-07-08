@@ -30,7 +30,7 @@ const tags = [...new Set(allPosts.map((post) => post.data.tags).flat())];
     <!-- lg:w-10/12 xl:mr-60 -->
     <div class="flex flex-col md:flex-row md:pt-10">
       <Drawer url={url} tags={tags} posts={sortedPostsByDate} transition:animate="fade" />
-      <div class="content my-0 md:mr-6 md:w-5/6" transition:animate="fade">
+      <div class="content my-0 md:w-5/6" transition:animate="fade">
         <main class="flex-grow"><slot /></main>
         <!-- <div class="absolute w-full h-full bg-black opacity-50"></div> -->
       </div>

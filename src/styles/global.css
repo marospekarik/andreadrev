@@ -73,7 +73,7 @@
   padding-right: 5vw;
 }
 .content {
-  padding-right: 7vw;
+  /* padding-right: 7vw; */
   padding-left: 7vw;
 }
 .gallery {
@@ -134,9 +134,11 @@
 .about p {
   font-family: "Roboto", sans-serif;
   font-weight: 200;
-  line-height: 1.6rem;
+  line-height: 1.5;
   font-style: normal;
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
+  font-size: 16px;
+  max-width: 65ch;
 }
 
 @media screen and (max-width: 768px) {
