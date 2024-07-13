@@ -23,12 +23,33 @@ const sortedPostsByDate = posts.sort((a, b) => {
   return dateB.getTime() - dateA.getTime();
 });
 var [firstPost, ...restPosts] = sortedPostsByDate;
-const shouldShowHeadline = sortedPostsByDate.length > 2;
+// const shouldShowHeadline = sortedPostsByDate.length > 2;
+const shouldShowHeadline = false;
 restPosts = shouldShowHeadline ? restPosts : sortedPostsByDate;
+var text = '';
+// if (tag == 'Art & Research') {
+//   text = `Yes, I have a parallel academic career, catalyzed by a passion for research, art, and technology. My research
+//       field encompasses topics such as new media technologies, robotic art, video art, cyberfeminism, and the
+//       intersection of art, science, and technology studies. Over recent years, I have produced new media art and
+//       performances and published several research papers. My artistic practice-based research projects and performances
+//       have been exhibited in the Museum of Contemporary Art Belgrade (RS), Art Quarter Budapest (HU), Art Factory Lodz
+//       (PL), MicroPOM (Politics of Machines) (DK), AU Vienna (AT), and others. I have presented my research at the
+//       International Summit of Electronic Arts (ISEA) in Barcelona, and The Aesthetics of Biomachine and The Question of
+//       Life in Copenhagen.`;
+// }
 ---
 
 <BaseLayout pageTitle={tag}>
   <section class="mx-auto">
+    <!-- <header class="tags_header flex flex-col"> -->
+    <!-- <h1>
+        {tag}
+      </h1> -->
+    <!-- <p>
+        {text}
+      </p> -->
+    <!-- </header> -->
+
     {
       shouldShowHeadline ? (
         <a
@@ -49,7 +70,7 @@ restPosts = shouldShowHeadline ? restPosts : sortedPostsByDate;
       ) : null
     }
 
-    <ul class="grid grid-cols-1 mt-8 gap-1 gap-y-2 gap-x-4 md:grid-cols-3 lg:grid-cols-4 sm:grid-cols-2">
+    <ul class="grid grid-cols-1 gap-1 gap-y-2 gap-x-4 md:grid-cols-3 lg:grid-cols-3 sm:grid-cols-2">
       {
         restPosts.map((post) => (
           <EntriesOne

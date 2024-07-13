@@ -48,7 +48,7 @@ export default function Gallery({images, shouldRenderCarousel = true}) {
       }
     return (
         <div>
-            {shouldRenderCarousel && <div style={{ height: '800px' }} ref={containerRef}></div>}
+            {shouldRenderCarousel && <div style={{ height: '500px' }} ref={containerRef}></div>}
             <LightGallery
                 container={shouldRenderCarousel && containerRef.current}
                 onInit={onInit}
