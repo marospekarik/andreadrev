@@ -8,7 +8,9 @@ tags: ['Video']
 ---
 
 ### MUZICKA ATRAKCIJA (2019)
-I produced and directed a music film for the HALI GALI compilation, a project tied to the HALI GALI festival & production.
+
+I've directed (and creatively directed) music videos and ads. In some cases, I was also the executive producer. Video production is one of my strongest skills, regardless of the scope of the project. I love working both in small flexible teams with solely the director of photography chasing natural light, and large complex teams on elaborate sets. I would love to collaborate on video projects.
+
 <div class="grid md:grid-cols-2 space-x-2 space-y-2 ">
 
 <div class="md:ml-2 md:mt-2">

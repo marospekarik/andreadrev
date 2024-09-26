@@ -1,6 +1,7 @@
 ---
 title: About
 ---
+
 <header class="about_hero">
 <h1>Hi, I am ANDREA DREV </br>(fka TEŠANOVIĆ)</h1>
 <h2>communications manager and creative director based in Copenhagen.</h2>
@@ -10,4 +11,4 @@ I work at the nexus of business and creativity, elevating brands through impactf
 
 I co-founded the [HALI GALI](/posts/hali-gali) entertainment platform, creative production [Gilipter](/posts/gilipter), and the feminist podcast [FEMKAST](/posts/femkast).
 
-Recently, I worked with [Drugstore Belgrade](https://drugstorebeograd.com/), [Ars Electronica](https://ars.electronica.art/news/en/), and the [United Nations](https://un.dk/).
+Recently, I worked with [Dimension Lab](https://www.dimensionlab.org/), the [United Nations](https://un.dk/), [Ars Electronica](https://ars.electronica.art/news/en/) and [Drugstore Belgrade](https://drugstorebeograd.com/).

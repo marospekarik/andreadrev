@@ -1,10 +1,140 @@
+---
+import { useState } from 'react';
+---
+
 <div
+  id="player-container"
   class="fixed bottom-0 flex w-full justify-between text-gray-900 bg-white py-2 px-4 z-40 border-t border-t-gray-300"
 >
-  <div class="flex items-center">
-    <span class="cursor-pointer text-xs">☼ THE SUN SALON ►</span>
+  <div class="spotify-link mr-2">
+    <a href="https://open.spotify.com/playlist/1IkvPf5bOtdgg5BMOixxNX?si=ea06960b3afb483c" target="_blank">
+      <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"
+        ><path
+          d="M19.098 10.638c-3.868-2.297-10.248-2.508-13.941-1.387-.593.18-1.22-.155-1.399-.748-.18-.593.154-1.22.748-1.4 4.239-1.287 11.285-1.038 15.738 1.605.533.317.708 1.005.392 1.538-.316.533-1.005.709-1.538.392zm-.126 3.403c-.272.44-.847.578-1.287.308-3.225-1.982-8.142-2.557-11.958-1.399-.494.15-1.017-.129-1.167-.623-.149-.495.13-1.016.624-1.167 4.358-1.322 9.776-.682 13.48 1.595.44.27.578.847.308 1.286zm-1.469 3.267c-.215.354-.676.465-1.028.249-2.818-1.722-6.365-2.111-10.542-1.157-.402.092-.803-.16-.895-.562-.092-.403.159-.804.562-.896 4.571-1.045 8.492-.595 11.655 1.338.353.215.464.676.248 1.028zm-5.503-17.308c-6.627 0-12 5.373-12 12 0 6.628 5.373 12 12 12 6.628 0 12-5.372 12-12 0-6.627-5.372-12-12-12z"
+        ></path></svg
+      >
+    </a>
   </div>
-  <div class="flex items-center">
-    <span class="cursor-pointer text-xs">► THE MOON SALON ☽</span>
+  <div id="toggleBtn" class="flex items-center">
+    <span class="cursor-pointer text-xs">☼ THE SUN SALON</span>
+    <div id="controls" class="flex ml-2">
+      <button id="toggleBtn_repre" class="text-xs px-2">►</button>
+    </div>
+  </div>
+  <div class="flex-grow flex justify-center items-center">
+    <div id="embed-iframe_sun" class="h-1 w-1 hidden display-none"></div>
+  </div>
+  <div class="flex-grow flex justify-center items-center">
+    <div id="embed-iframe_moon" class="h-1 w-1 hidden display-none"></div>
+  </div>
+  <div id="toggleBtn_moon" class="flex items-center">
+    <div id="controls_moon" class="flex ml-2">
+      <button id="toggleBtn_moon_repre" class="text-xs px-2">►</button>
+    </div>
+    <span class="cursor-pointer text-xs">THE MOON SALON ☽</span>
+  </div>
+  <div class="spotify-link ml-2">
+    <a href="https://open.spotify.com/playlist/0G2PPvQh0njJtZoi4yRj1u?si=aa59fc6fa2f04e05" target="_blank">
+      <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"
+        ><path
+          d="M19.098 10.638c-3.868-2.297-10.248-2.508-13.941-1.387-.593.18-1.22-.155-1.399-.748-.18-.593.154-1.22.748-1.4 4.239-1.287 11.285-1.038 15.738 1.605.533.317.708 1.005.392 1.538-.316.533-1.005.709-1.538.392zm-.126 3.403c-.272.44-.847.578-1.287.308-3.225-1.982-8.142-2.557-11.958-1.399-.494.15-1.017-.129-1.167-.623-.149-.495.13-1.016.624-1.167 4.358-1.322 9.776-.682 13.48 1.595.44.27.578.847.308 1.286zm-1.469 3.267c-.215.354-.676.465-1.028.249-2.818-1.722-6.365-2.111-10.542-1.157-.402.092-.803-.16-.895-.562-.092-.403.159-.804.562-.896 4.571-1.045 8.492-.595 11.655 1.338.353.215.464.676.248 1.028zm-5.503-17.308c-6.627 0-12 5.373-12 12 0 6.628 5.373 12 12 12 6.628 0 12-5.372 12-12 0-6.627-5.372-12-12-12z"
+        ></path></svg
+      >
+    </a>
   </div>
 </div>
+
+<script>
+  window.onSpotifyIframeApiReady = (IFrameAPI) => {
+    let EmbedControllerSun, EmbedControllerMoon;
+    let isPlayingSun = false,
+      isPlayingMoon = false;
+    const playerContainer = document.getElementById('player-container');
+
+    // Sun Salon
+    const elementSun = document.getElementById('embed-iframe_sun');
+    const optionsSun = {
+      uri: 'spotify:playlist:1IkvPf5bOtdgg5BMOixxNX?si=ea06960b3afb483c',
+      height: '0',
+    };
+    const callbackSun = (controller) => {
+      EmbedControllerSun = controller;
+      const toggleBtnSun = document.getElementById('toggleBtn');
+
+      toggleBtnSun.addEventListener('click', () => {
+        if (isPlayingSun) {
+          EmbedControllerSun.pause();
+          document.getElementById('toggleBtn_repre').textContent = '►';
+          playerContainer.classList.remove('sun-salon-playing');
+        } else {
+          if (isPlayingMoon) {
+            EmbedControllerMoon.pause();
+            document.getElementById('toggleBtn_moon_repre').textContent = '►';
+            playerContainer.classList.remove('moon-salon-playing');
+            isPlayingMoon = false;
+          }
+          EmbedControllerSun.play();
+          document.getElementById('toggleBtn_repre').textContent = '❚❚';
+          playerContainer.classList.add('sun-salon-playing');
+        }
+        isPlayingSun = !isPlayingSun;
+      });
+    };
+    IFrameAPI.createController(elementSun, optionsSun, callbackSun);
+
+    // Moon Salon
+    const elementMoon = document.getElementById('embed-iframe_moon');
+    const optionsMoon = {
+      uri: 'spotify:playlist:0G2PPvQh0njJtZoi4yRj1u?si=aa59fc6fa2f04e05',
+      height: '0',
+    };
+    const callbackMoon = (controller) => {
+      EmbedControllerMoon = controller;
+      const toggleBtnMoon = document.getElementById('toggleBtn_moon');
+
+      toggleBtnMoon.addEventListener('click', () => {
+        if (isPlayingMoon) {
+          EmbedControllerMoon.pause();
+          document.getElementById('toggleBtn_moon_repre').textContent = '►';
+          playerContainer.classList.remove('moon-salon-playing');
+        } else {
+          if (isPlayingSun) {
+            EmbedControllerSun.pause();
+            document.getElementById('toggleBtn_repre').textContent = '►';
+            playerContainer.classList.remove('sun-salon-playing');
+            isPlayingSun = false;
+          }
+          EmbedControllerMoon.play();
+          document.getElementById('toggleBtn_moon_repre').textContent = '❚❚';
+          playerContainer.classList.add('moon-salon-playing');
+        }
+        isPlayingMoon = !isPlayingMoon;
+      });
+    };
+    IFrameAPI.createController(elementMoon, optionsMoon, callbackMoon);
+  };
+</script>
+
+<style>
+  #embed-iframe_sun {
+    max-width: 100%;
+    overflow: hidden;
+    visibility: hidden !important;
+  }
+  button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    outline: none;
+  }
+  button:hover {
+    color: #1db954; /* Spotify green */
+  }
+  .sun-salon-playing {
+    background-color: #f17e35; /* Example background color when Sun Salon is playing */
+  }
+  .moon-salon-playing {
+    background-color: #004aac; /* Example background color when Moon Salon is playing */
+    color: white; /* Change text color to white */
+  }
+</style>
