@@ -84,6 +84,11 @@ Use AstroSeo in all the pages you want different Seo than the index page
   rel="stylesheet"
 />
 <script src="https://open.spotify.com/embed/iframe-api/v1" async></script>
+{
+  import.meta.env.MODE === 'production' && (
+    <script defer src="https://cloud.umami.is/script.js" data-website-id="347af108-764d-488b-88b4-0460de357df8" />
+  )
+}
 
 <!-- <link
   href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
