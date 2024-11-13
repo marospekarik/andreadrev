@@ -1,55 +1,58 @@
 ---
 import '../styles/global.css';
 import { AstroSeo } from '@astrolib/seo';
+
+// Add interface for props
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+}
+
+const {
+  title = 'Andrea Drev',
+  description = 'Hi. I am Andrea Drev, a Creative Director based in Copenhagen. Get in touch!',
+  image = 'https://www.andreadrev.com/opengraph/social-og.jpg',
+} = Astro.props;
 ---
 
-<!---
-Use AstroSeo in all the pages you want different Seo than the index page
--->
 <AstroSeo
-  title="Andrea Drev"
-  description="Hi. I am Andrea Drev, a Creative Director based in Copenhagen. Get in touch!"
+  title={title}
+  titleDefault="Andrea Drev"
+  titleTemplate="%s | Andrea Drev"
+  description={description}
   canonical="https://www.andreadrev.com"
   openGraph={{
     url: 'https://www.andreadrev.com',
-    title: 'Portfolio of Andrea Drev',
-    description: 'Hi, I am Andrea Drev, a Creative Director based in Copenhagen. Get in touch!',
+    title: title,
+    description: description,
     images: [
       {
-        url: 'https://www.andreadrev.com/opengraph/social-og.jpg',
+        url: image,
         width: 1200,
         height: 630,
         alt: 'Andrea Drev',
         type: 'image/jpeg',
       },
-      {
-        url: 'https://www.andreadrev.com/opengraph/twitter-og.png',
-        width: 4096,
-        height: 4096,
-        alt: 'Andrea Drev',
-        type: 'image/jpeg',
-      },
-      { url: 'https://www.andreadrev.com/opengraph/social-og.png' },
-      { url: 'https://www.andreadrev.com/opengraph/twitter-og.png' },
     ],
-    site_name: 'AndreaDrev',
+    site_name: 'Andrea Drev',
+    type: 'website',
   }}
   twitter={{
     handle: '@andrea_drev',
-    site: '@site',
+    site: '@andrea_drev',
     cardType: 'summary_large_image',
   }}
 />
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width" />
-<meta name="generator" content={Astro.generator} />
-<meta charset="UTF-8" />
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="author" content="Michael Andreuzza" />
-<meta name="your keywords" content="Add ypour keywords here" />
 
-<!-- Favicon guidelines generated with https://favicon.io/ -->
+<!-- Remove duplicate meta tags and optimize the essential ones -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="generator" content={Astro.generator} />
+<meta name="author" content="Andrea Drev" />
+<meta name="keywords" content="creative director, copenhagen, design, art direction" />
+
+<!-- Favicon section -->
 <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png" />
 <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png" />
 <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png" />
@@ -64,6 +67,7 @@ Use AstroSeo in all the pages you want different Seo than the index page
 <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
 <link href="https://api.fontshare.com/v2/css?f[]=jet-brains-mono@1,2&display=swap" rel="stylesheet" />
 
+<!-- Optimize font loading with display swap and preload -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link
@@ -83,14 +87,30 @@ Use AstroSeo in all the pages you want different Seo than the index page
   href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
   rel="stylesheet"
 />
-<script src="https://open.spotify.com/embed/iframe-api/v1" async></script>
+
+<!-- Add JSON-LD structured data -->
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Andrea Drev",
+    "jobTitle": "Creative Director",
+    "url": "https://www.andreadrev.com",
+    "sameAs": ["https://twitter.com/andrea_drev"],
+    "location": {
+      "@type": "Place",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Copenhagen",
+        "addressCountry": "Denmark"
+      }
+    }
+  }
+</script>
+
+<!-- Analytics (production only) -->
 {
   import.meta.env.MODE === 'production' && (
     <script defer src="https://cloud.umami.is/script.js" data-website-id="347af108-764d-488b-88b4-0460de357df8" />
   )
 }
-
-<!-- <link
-  href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
-  rel="stylesheet"
-/> -->
